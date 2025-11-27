@@ -22,6 +22,8 @@
 
         while(1)
     {
+        while(1)
+        {
         printf("Enter the first number: ");
         scanf("%d", &input[0]);
 
@@ -31,11 +33,25 @@
         printf("Enter the third number: ");
         scanf("%d", &input[2]);
 
+        if(input[0] < 1 || input[0] > 9 ||
+           input[1] < 1 || input[1] > 9 ||
+           input[2] < 1 || input[2] > 9 )
+           {
+            printf("1과 9 사이의 숫자만 입력 가능합니다..\n");
+            continue;
+           }
+           if(input[0] == input[1] || input[1] == input[2] || input[2] == input[0] )
+           {
+            printf("같은 숫자는 입력이 불가능 합니다 \n");
+            continue;
+           }
+           break;
+        }
         printf("input : %d %d %d\n", input[0], input[1], input[2]) ;
 
-        int strike_count = 0;
-        int ball_count = 0 ;
-        int out_count = 3 ;
+        strike_count = 0;
+        ball_count = 0 ;
+        out_count = 3 ;
 
         if( ball[0] == input[0] )       // strike count
         {
